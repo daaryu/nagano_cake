@@ -47,18 +47,18 @@ namespace :admin do
   root to: 'homes#top'
 
   resources :items, except: [:destroy]
-  get 'genres' => 'genres#index'
-  post 'genres' => 'genres#create'
-  get 'genres/:id/edit' => 'genres#edit'
-  patch 'genres/:id' => 'genres#update'
+
+  resources :genres, only: [:index, :create, :edit, :update]
 
 
   resources :customers, only: [:index, :show, :edit, :update]
 
-  get 'orders/:id' => 'orders#show'
-  patch 'orders/:id' => 'orders#update'
+  resources :orders, only: [:show, :update]
 
-  patch 'order_details/:id' => 'order_details#update'
+  resources :order_details, only: [:update]
+
+
+
 
 end
 
