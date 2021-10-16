@@ -6,7 +6,7 @@
     <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
         <div class="form_group">
           <label for="item_image">商品画像</label>
-          <%= f.file_field :image_id %>
+          <%= f.attachment_field :image %>
         </div>
          <div class="form_group">
           <label for="item_name">商品名</label>
@@ -18,7 +18,17 @@
          </div>
         　<div class="form_group">
          　 <label for="genre">ジャンル</label>
-      
+         　<%= f.select :genre_id, @array, { selected: 1 } %>
+         　<!--include_blank: true,-->
+
+          <!--array = []-->
+          <!--Genre.all.each do |genre|-->
+          <!--  array.push([genre.name, genre.id])-->
+          <!--end-->
+
+          <!--array = Genre.all.map do |genre|-->
+          <!--  [genre.name, genre.id]-->
+          <!--end-->
          </div>
          <div class="form_group">
           <label for="item_price">税抜価格</label>

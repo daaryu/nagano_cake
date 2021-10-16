@@ -1,10 +1,16 @@
 <main>
   <div class="container">
     <div class="row">
+      <div class="col-4 text-center bg-light ">
       <h3>商品一覧</h3>
+      </div>
+      <div class="col text-right ">
+        <%= link_to  new_admin_item_path do %>
+        <button type="button" class="btn btn-light rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
+        <% end %>
+      </div>
     </div>
     <div class="row">
-
         <table class="table">
           <thead>
             <tr>
@@ -23,25 +29,18 @@
                  <%= item.id %>
                </td>
               <td>
-                <%= link_to 'item.name', admin_item_path(item.id) %>
+                <%= link_to item.name, admin_item_path(item.id), class: "text-dark border-bottom " %>
               </td>
               <td>
                 <%= item.price %>
               </td>
               <td>
-                <%= item.genre %>
+                <%= item.genre.name %>
               </td>
-
             </tr>
             <% end %>
           </tbody>
-
         </table>
-
-
     </div>
-
-
-
   </div>
 </main>

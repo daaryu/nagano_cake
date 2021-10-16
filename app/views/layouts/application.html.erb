@@ -4,6 +4,7 @@
     <title>NaganocakeApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,18 +13,18 @@
   </head>
 
   <body>
-   <header >
+   <header class="border-bottom" >
       <nav class="navbar navbar-expand-lg navbar-white bg-white">
         <div class="container">
-          <a class="navbar-brand" href="/"><span>LOGO</span></a>
+          <a class="navbar-brand" href="/"><span class="text-dark border border-dark">LOGO</span></a>
 
         <ul class="nav navbar-nav ml-auto">
          <% if admin_signed_in? %>
            <li>
-            <%= link_to "商品一覧", admin_item_path ,class: "btn btn-outline-secondary" %>
+            <%= link_to "商品一覧", admin_items_path ,class: "btn btn-outline-secondary" %>
           </li>
            <li>
-            <%= link_to "会員一覧", admin_customer_path ,class: "btn btn-outline-secondary" %>
+            <%= link_to "会員一覧", admin_customers_path ,class: "btn btn-outline-secondary" %>
           </li>
            <li>
             <%= link_to"注文履歴一覧", admin_root_path ,class: "btn btn-outline-secondary" %>
@@ -39,7 +40,7 @@
             <%= link_to"About", homes_about_path ,class: "btn btn-outline-secondary"  %>
           </li>
            <li>
-            <%= link_to"商品一覧", items_index_path ,class: "btn btn-outline-secondary"  %>
+            <%= link_to"商品一覧", items_path ,class: "btn btn-outline-secondary"  %>
           </li>
            <li>
             <%= link_to "新規登録", new_customer_registration_path ,class: "btn btn-outline-secondary" %>
@@ -57,5 +58,6 @@
       </nav>
     </header>
     <%= yield %>
+    <footer class="border-top"></footer>
   </body>
 </html>

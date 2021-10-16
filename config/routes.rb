@@ -11,34 +11,24 @@ scope module: :public do
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
 
-  get 'items/index' => 'items#index'
-  get 'items/show' => 'items#show'
+  resources :items, only:[:index,:show]
 
-
+  resources :customers, only:[:edit,:update]
   get 'customers/my_page' => 'customers#show'
-  get 'customers/edit' => 'customers#edit'
-  patch 'customers' => 'customers#update'
   get 'customers/unsubscribe' => 'customers#unsubscribe'
   patch 'customers/quit' => 'customers#quit'
 
-  get 'cart_items' => 'cart_items#index'
-  patch 'cart_items/:id' => 'cart_items#update'
-  delete 'cart_items/:id' => 'cart_items#destroy'
+  resources :cart_items, only:[:index,:update,:destroy,:create]
   delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
-  post 'cart_items' => 'cart_items#create'
 
+  resources :orders, only:[:index,:create,:show]
   get 'orders/new' => 'orders#new'
   post 'orders/confirm' => 'orders#confirm'
   get 'orders/thanks' => 'orders#thanks'
-  post 'orders' => 'orders#create'
-  get 'orders' => 'orders#index'
-  get 'orders/:id' => 'orders#show'
 
-  get 'addresses' => 'adresses#index'
-  get 'addresses/:id/edit' => 'adresses#edit'
-  post 'addresses' => 'adresses#create'
-  patch 'addresses/:id' => 'addresses#update'
-  delete 'addresses/:id' => 'addresses#destroy'
+
+  resources :addresses, except:[:show,:new]
+
 
 
 end

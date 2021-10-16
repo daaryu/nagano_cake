@@ -1,7 +1,9 @@
 <main>
   <div class="container">
     <div class="row">
-      <h3>ジャンル編集</h3>
+      <div class="col-4 text-center bg-light">
+      <h4>ジャンル編集</h4>
+      </div>
     </div>
     <div class="row">
       <%= form_with model: @genre, url: admin_genre_path(@genre), local:true do |f| %>
@@ -15,10 +17,10 @@
           </tbody>
 
         </table>
-      
-        
+
+
     </div>
-   
+
 
 
   </div>

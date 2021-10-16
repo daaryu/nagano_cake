@@ -1,0 +1,45 @@
+<main>
+  <div class="container">
+    <div class="row">
+     <div class="col-4 text-center bg-light">
+      <h3><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h3>
+      </div>
+    </div>
+
+    <%= form_with model:@customer , url:admin_customer_path(@customer.id), local do |f| %>
+     <div class="row">
+       <div class="col">会員ID</div>
+       <div class="col"> <%= customer.id %></div>
+     </div>
+     <div class="row">
+       <div class="col">氏名</div>
+       <div class="col"><%= f.text_filed :first_name %></div>
+       <div class="col"><%= f.text_filed :last_name %></div>
+     </div>
+     <div class="row">
+       <div class="col">フリガナ</div>
+       <div class="col"><%= f.text_filed :first_name_kana %></div>
+       <div class="col"><%= f.text_filed :last_name_kana %></div>
+     </div>
+      <div class="row">
+       <div class="col">郵便番号</div>
+       <div class="col"><%= f.text_filed :postal_code %></div>
+     </div>
+      <div class="row">
+       <div class="col">住所</div>
+       <div class="col-"><%= f.text_filed :address %></div>
+     </div>
+      <div class="row">
+       <div class="col">電話番号</div>
+       <div class="col"><%= f.text_filed :telephone_number %></div>
+     </div>
+      <div class="row">
+       <div class="col">メールアドレス</div>
+       <div class="col"><%= f.text_filed :email %></div>
+     </div>
+     <div class="row">
+        <button class="btn btn-success">変更を保存</button>
+    </div>
+    <% end %>
+  </div>
+</main>
