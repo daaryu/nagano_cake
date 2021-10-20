@@ -1,0 +1,79 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-3 text-center bg-light">
+        <h5>マイページ</h5>
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col-2">
+         <h5><strong>登録情報</strong></h5>
+        </div>
+        <div class="col-10 text-left">
+         <%= link_to edit_customer_path(current_customer.id) do %>
+          　<button class="btn btn-success">編集する</button>
+         <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <tr>
+            <th class="border">氏名</th>
+            <td><%= current_customer.last_name %><%= current_customer.first_name %></td>
+          </tr>
+        </div>
+      </div>
+      <table class="table table-bordered ">
+        <tr>
+          <th class="table-secondary">氏名</th>
+          <td><%= current_customer.last_name %><%= current_customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">カナ</th>
+          <td><%= current_customer.last_name_kana %><%= current_customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">郵便番号</th>
+          <td><%= current_customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">住所</th>
+          <td><%= current_customer.address %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">電話番号</th>
+          <td><%= current_customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">メールアドレス</th>
+          <td><%= current_customer.email %></td>
+        </tr>
+      </table>
+     <div class="row">
+        <div class="col-2">
+         <h5><strong>配送先</strong></h5>
+        </div>
+        <div class="col-10 text-left">
+         <%= link_to addresses_path do %>
+          　<button class="btn btn-primary">一覧を見る</button>
+         <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+         <h5><strong>注文履歴</strong></h5>
+        </div>
+        <div class="col-10 text-left">
+         <%= link_to orders_path do %>
+          　<button class="btn btn-primary">一覧を見る</button>
+         <% end %>
+        </div>
+      </div>
+
+
+
+
+
+  </div>
+</main>

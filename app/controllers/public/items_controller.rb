@@ -1,7 +1,9 @@
 class Public::ItemsController < ApplicationController
   def index
-end
+    @genres = Genre.all
+    @items = Item.all
+  end
 
-def new
-end
+  def new
+  end
 end

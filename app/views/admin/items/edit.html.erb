@@ -7,7 +7,7 @@
      <div class="col-8"></div>
     </div>
 
-    <%= form_with model:@item, url:admin_item_path(@item.id), local:true do |f| %>
+    <%= form_with model:[:admin,@item], local:true do |f| %>
          <div class="row">
           <div class="col-4 text-center">
            <label for="item_image">商品画像</label>
