@@ -1,0 +1,46 @@
+<main>
+  <div class="container">
+    <div class="row">
+    <div class="col-md-2">
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ジャンル検索</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @genres.each do |genre| %>
+             <tr>
+              <td>
+                <%= genre.name %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: 'no_image.jpg', size:"200x200" %>
+    </div>
+    <div class="col-md-5">
+      <h4><strong><%= @item.name %></strong></h4>
+      <h4><%= @item.introduction %></h4>
+      <h5><strong>¥<%= @item.price.to_s(:delimited) %></strong>(税込)</h5>
+      <%= form_with model: @cart_item, url:cart_items_path, local: true do |f| %>
+
+         <%= f.select(:amount, 1..20, { include_blank: '選択してください' },) %>
+         <%= f.submit "カートに入れる", class:"btn btn-success" %>
+      <% end %>
+
+
+
+
+    </div>
+
+
+
+   </div>
+  </div>
+</main>

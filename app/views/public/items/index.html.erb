@@ -28,7 +28,7 @@
           <div class="d-flex">
           <% @items.each do |item| %>
             <div class="">
-              <td><%= attachment_image_tag item, :image, format: 'jpeg', fallback: 'no_image.jpg', size:"200x200" %></br><%= item.name %></br><%= item.price %></td>
+              <td><%= attachment_image_tag item, :image, format: 'jpeg', fallback: 'no_image.jpg', size:"200x200" %></br><%= link_to item.name,item_path(item.id) %></br>¥<%= item.price.to_s(:delimited) %></td>
             </div>
           <% end %>
           </div>
