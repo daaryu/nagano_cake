@@ -28,8 +28,9 @@
       <h4><strong><%= @item.name %></strong></h4>
       <h4><%= @item.introduction %></h4>
       <h5><strong>¥<%= @item.price.to_s(:delimited) %></strong>(税込)</h5>
-      <%= form_with model: @cart_item, url:cart_items_path, local: true do |f| %>
 
+      <%= form_with model: @cart_item, url:cart_items_path, method: :post, local: true do |f| %>
+         <%= f.hidden_field :item_id, :value => @item.id %>
          <%= f.select(:amount, 1..20, { include_blank: '選択してください' },) %>
          <%= f.submit "カートに入れる", class:"btn btn-success" %>
       <% end %>
