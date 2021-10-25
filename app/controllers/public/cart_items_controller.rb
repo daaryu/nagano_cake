@@ -3,12 +3,15 @@ class Public::CartItemsController < ApplicationController
       @cart_item = CartItem.new
       @cart_items = CartItem.all
        # @item = Item.find
+       #アソシエーションで定義しているから@itemの記述はいらない
 
     end
 
     def update
       @cart_item = CartItem.find(params[:id])
+      #一つの商品だからfind.(params[:id])
       @cart_item.update(cart_item_params)
+      #変更する内容
       redirect_to cart_items_path
     end
 

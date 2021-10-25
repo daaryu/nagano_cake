@@ -31,10 +31,10 @@ scope module: :public do
 
    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :cart_items, only:[:index,:update,:destroy,:create]
+  #似たようなアクションがある時は順番に注意（destroyよりdestroy_allを優先）
 
 
-  resources :orders, only:[:index,:create,:show]
-  get 'orders/new' => 'orders#new'
+  resources :orders, only:[:index,:create,:show,:new]
   post 'orders/confirm' => 'orders#confirm'
   get 'orders/thanks' => 'orders#thanks'
 
