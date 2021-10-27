@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col">購入者</div>
-      <div class="col"><%= link_to 'customer.first_name.last_name', admin_customer_path(@customer.id)%></div>
+      <div class="col"><%= link_to @customer.last_name + @customer.first_name, admin_customer_path(@customer)%></div>
     </div>
     <div class="row">
       <div class="col">注文日</div>
@@ -41,7 +41,8 @@
             </tr>
           </thead>
           <tbody>
-            <% @order.each do |order| %>
+            <% @sum = 0 %>
+            <% @order_details.each do |order| %>
              <tr>
                <td>
                 <%= order.item.name %>
@@ -50,16 +51,36 @@
                 <%= order.item.price %>
               </td>
               <td>
-                <%= orderitem.amount %>
+                <%= order.amount %>
               </td>
               <td>
-                <%= order.total_payment %>
+                <%= (order.item.price * 1.1).floor * order.amount %>
+                <% @sum += (order.item.price * 1.1).floor * order.amount %>
               </td>
             </tr>
             <% end %>
           </tbody>
         </table>
         </div>
+       <div class="row">
+         <div class="col">
+             <table  class="table">
+            <tr>
+              <th>商品合計</th>
+              <td><%= @sum %></td>
+            </tr>
+            <tr>
+              <th>送料</th>
+              <td><%= @sum %></td>
+            </tr>
+            <tr>
+              <th>請求金額</th>
+              <td><%= (@sum + 800) %></td>
+            </tr>
+          </table>
+         </div>
+
+       </div>
 
         </div>
     </div>
