@@ -11,19 +11,19 @@
     </div>
     <div class="row">
       <div class="col">注文日</div>
-      <div class="col"><%= @order.created_at%></div>
+      <div class="col"><%= @order.created_at.strftime('%Y/%m/%d') %></div>
     </div>
     <div class="row">
       <div class="col">配送先</div>
-      <div class="col"><%= @order.address %></div>
+      <div class="col">〒<%= @order.postal_code %><%= @order.address %></div>
     </div>
     <div class="row">
-      <div class="col">''</div>
+      <div class="col"></div>
       <div class="col"><%= @order.name %></div>
     </div>
     <div class="row">
       <div class="col">支払方法</div>
-      <div class="col"><%= @order.payment_method %></div>
+      <div class="col"><%= @order.payment_method_i18n %></div>
     </div>
 
 
@@ -71,7 +71,7 @@
             </tr>
             <tr>
               <th>送料</th>
-              <td><%= @sum %></td>
+              <td><%= 800 %></td>
             </tr>
             <tr>
               <th>請求金額</th>

@@ -72,4 +72,4 @@ gem "refile-mini_magick"
 gem 'rails-i18n'
 gem 'enum_help'
 
-
+gem 'pry-byebug'
