@@ -2,13 +2,13 @@
    <div class="container">
      <div class="row">
        <div class="col-4 text-center bg-light">
-        <h3>注文情報入力</h3>
+         <h3>注文情報入力</h3>
        </div>
      </div>
       <h5><strong>支払方法</strong></h5>
       <%= form_with model:@order, url:orders_confirm_path, local:true do |f| %>
      <div class="row">
-       <div class="col">
+       <div class="col-md-11 offset-md-1">
          <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
          <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %></br>
 
@@ -19,51 +19,56 @@
      </div>
      <h5><strong>お届け先</strong></h5>
      <div class="row">
-       <div class="col">
+       <div class="col-md-11 offset-md-1">
         <%= f.radio_button :address_option, 1 %>
         <%= f.label :address_option, "ご自身の住所" %></br>
-        <%= current_customer.postal_code %><%= current_customer.address %></br>
+        〒<%= current_customer.postal_code %><%= current_customer.address %></br>
         <%= current_customer.last_name %><%= current_customer.first_name %>
        </div>
      </div>
 
      <div class="row">
-       <div class="col-12">
+       <div class="col-md-11 offset-md-1">
         <%= f.radio_button :address_option, 2 %>
         <%= f.label :address_option, "登録済住所から選択" %></br>
        </div>
-       <div class="col">
+       <div class="col-8 offset-4">
         <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %>
        </div>
      </div>
 
 
      <div class="row">
-       <div class="col-12">
+       <div class="col-md-11 offset-md-1">
         <%= f.radio_button :address_option, 3 %>
         <%= f.label :address_option, "新しいお届け先" %>
        </div>
-           <div class="col-4">
+           <div class="col-3 offset-1">
              <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
            </div>
            <div class="col-8">
              <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
            </div>
-           <div class="col-md-4">
+           <div class="col-md-3 offset-md-1">
              <%= f.label :address_new, "住所" %>
            </div>
            <div class="col-md-8">
              <%= f.text_field :address_new, autofocus: true, autocomplete: "address_new" %>
            </div>
 
-           <div class="col-4">
+           <div class="col-3 offset-1">
              <%= f.label :name, "宛名" %>
            </div>
            <div class="col-8">
              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
            </div>
          </div>
-     <%= f.submit "確認画面へ進む" %>
-     <% end %>
+         <div class="row">
+          <div class="col text-center">
+           <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
+           <% end %>
+          </div>
+         </div>
+
    </div>
 </main>

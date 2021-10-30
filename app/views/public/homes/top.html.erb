@@ -1,26 +1,26 @@
 <main>
   <div class="container">
     <div class="row">
-    <div class="col-md-2">
-      <div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ジャンル検索</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @genres.each do |genre| %>
-             <tr>
-              <td>
-                <%= genre.name %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div class="col-md-2">
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ジャンル検索</th>
+              </tr>
+            </thead>
+            <tbody>
+             <% @genres.each do |genre| %>
+              <tr>
+                <td>
+                  <%= genre.name %>
+                </td>
+              </tr>
+             <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
     <div class="col-md-9 offset-md-1">
       <div class="main-center">
         <p>ようこそ、ながのCAKEへ！</p>
@@ -31,20 +31,23 @@
     </div>
   </div>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-9">
-          <div class=""></div>
-          <h4>新着商品</h4>
+      <div class="col-md-2"></div>
+      <div class="col-md-9">
+        <div class=""></div>
+          <h4><strong>新着商品</strong></h4>
           <div class="d-flex">
           <% @items.each do |item| %>
             <div class="">
-              <td><%= attachment_image_tag item, :image, format: 'jpeg', fallback: 'no_image.jpg', size:"200x200" %></br><%= item.name %></br><%= item.price %></td>
+              <td><%= attachment_image_tag item, :image, format: 'jpeg', fallback: 'no_image.jpg', size:"200x200" %></br><strong><%= item.name %></strong></br><strong><%= item.price %></strong></td>
             </div>
           <% end %>
           </div>
         </div>
       </div>
-
-
-  </div>
+    </div>
+    <div class="row">
+      <div class="col text-right">
+        <%= link_to "全ての商品を見る", items_path %>
+      </div>
+    </div>
 </main>
