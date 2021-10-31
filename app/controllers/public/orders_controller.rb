@@ -1,6 +1,8 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
+    redirect_to cart_items_path if current_customer.cart_items.empty?
+    #転移先　if  ログインしている顧客のカートにはいいていない？　trueの場合に　redirect_to実行
   end
 
   def confirm

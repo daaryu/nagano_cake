@@ -9,11 +9,12 @@ end
 
 def update
  @customer = Customer.find(params[:id])
-  @customer.update
-  redirect_to
+  @customer.update(customer_params)
+  redirect_to customers_my_page_path
 end
 
 def unsubscribe
+ @customer = current_customer
 
 end
 

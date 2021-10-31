@@ -20,9 +20,11 @@
           <% end %>
         </div>
         <div class="col">
-       <%= link_to customers_quit_path, method: :patch do %>
+      <% if customer_signed_in? && @customer.id == current_customer.id %>
+       <%= link_to customers_quit_path, method: :patch, "data-confirm" => "本当に退会しますか？" do %>
          <button class="btn btn-danger">退会する</button>
        <% end %>
+      <% end %>
         </div>
       </div>
   </div>
